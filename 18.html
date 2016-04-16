@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+    ul{
+        float: left;
+        list-style: none;
+    }
+        ul li
+        {
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+            font-size: 50px;
+
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="text">
+<input type="button" id="zuoru" value="左侧入">
+<input type="button" id="youru" value="右侧入">
+&nbsp
+<input type="button" id="zuochu" value="左侧出">
+<input type="button" id="youchu"value="右侧出">
+<br>
+<ul id="ul">
+
+</ul>
+<script>
+    var oinput=document.getElementById("text");
+    var zuoru=document.getElementById("zuoru");
+    var youru=document.getElementById("youru");
+    var zuochu=document.getElementById("zuochu");
+    var youchu=document.getElementById("youchu");
+    var oul=document.getElementById("ul");
+    var ali=oul.getElementsByTagName("li");
+    var a=[];
+    zuoru.onclick=function(){
+        a.unshift(oinput.value);
+        oul.innerHTML="";
+        shuzu();
+    };
+    youru.onclick=function(){
+        a.push(oinput.value);
+        oul.innerHTML="";
+        shuzu();
+    }
+    youchu.onclick=function(){
+        a.pop();
+        oul.innerHTML="";
+        shuzu();
+
+    }
+    zuochu.onclick=function(){
+        a.shift();
+        oul.innerHTML="";
+        shuzu();
+    }
+    function shuzu(){
+        for (var i=0;i< a.length;i++)
+        {
+            var li=document.createElement("li");
+            li.innerHTML=a[i];
+            oul.appendChild(li);
+
+        }
+    }
+</script>
+
+</body>
+</html>
