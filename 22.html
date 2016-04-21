@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        #fuqing
+        {
+            width:800px;
+            height: 300px;
+            border: 2px solid black;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            margin-left: 100px;
+
+        }
+        div
+        {
+            display: flex;
+            margin: 15px;
+            padding: 11px;
+            border: 2px solid black;
+            align-items: center;
+            justify-content: center;
+            background: white;
+
+        }
+        .fuqing
+        {
+            background: red;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+<div id="fuqing">0
+    <div>1
+        <div>2
+            <div>3</div>
+            <div>4</div>
+        </div>
+        <div>5
+            <div>6</div>
+            <div>7</div>
+        </div>
+    </div>
+    <div>8
+        <div>9
+            <div>10</div>
+            <div>11</div>
+        </div>
+        <div>12
+            <div>13</div>
+            <div>14</div>
+        </div>
+    </div>
+</div>
+<br>
+<input type="button" value="前序" style="width: 200px;height: 200px;font-size: 50px">
+<script>
+    var fu=document.getElementById("fuqing");
+    var zhan=[];
+   function bianli(node)
+   {
+      if(node==null)
+      {
+         // node.parentNode.style.backgroundColor="white";
+          return
+      }
+       alert(node.innerHTML);
+       bianse(node);
+       bianli(node.firstElementChild);
+       bianli(node.lastElementChild);
+   }
+    bianli(fu);
+
+    function bianse(node)
+    {
+
+        /*node.parentNode.style.backgroundColor="white";*/
+          node.style.backgroundColor="red";
+         node.parentNode.style.backgroundColor="white";
+
+
+        /*for(var i=0;i<node.children.length;i++)
+        {
+            node.children[i].style.backgroundColor="white";
+        }
+
+        if(node.previousElementSibling)
+        {
+            node.previousElementSibling.style.backgroundColor="white";
+        }*/
+
+    }
+
+</script>
+</body>
+</html>
