@@ -29,85 +29,80 @@
             align-items: center;
             justify-content: center;
             background: white;
+
         }
-        #button
+        .fuqing
         {
-            margin-left: 100px;
-            cursor: pointer;
+            background: red;
         }
+
+
+
     </style>
 </head>
 
 <body>
-<div id="fuqing">
-    <div>
-        <div>
-            <div></div>
-            <div></div>
+<div id="fuqing">0
+    <div>1
+        <div>2
+            <div>3</div>
+            <div>4</div>
         </div>
-        <div>
-            <div></div>
-            <div></div>
+        <div>5
+            <div>6</div>
+            <div>7</div>
         </div>
     </div>
-    <div>
-        <div>
-            <div></div>
-            <div></div>
+    <div>8
+        <div>9
+            <div>10</div>
+            <div>11</div>
         </div>
-        <div>
-            <div></div>
-            <div></div>
+        <div>12
+            <div>13</div>
+            <div>14</div>
         </div>
     </div>
 </div>
 <br>
-<input type="button" value="前序" style="width: 200px;height: 200px;font-size: 50px" id="button">
-</body>
+<input type="button" value="前序" style="width: 200px;height: 200px;font-size: 50px">
 <script>
-    var a=[];
     var fu=document.getElementById("fuqing");
-    function bianli(node)
-    {
-        if(node==null)
-        {
-            return;
-        }
-       /* alert(node.innerHTML);*/
-        a.push(node);
-        bianli(node.firstElementChild);
-        bianli(node.lastElementChild);
-    }
+    var zhan=[];
+   function bianli(node)
+   {
+      if(node==null)
+      {
+         // node.parentNode.style.backgroundColor="white";
+          return
+      }
+       alert(node.innerHTML);
+       bianse(node);
+       bianli(node.firstElementChild);
+       bianli(node.lastElementChild);
+   }
     bianli(fu);
+
     function bianse(node)
     {
-        node.style.backgroundColor="red";
-    }
 
-    var i=0;
-    function kaishi()
-    {
-        var time=setInterval(function()
+        /*node.parentNode.style.backgroundColor="white";*/
+          node.style.backgroundColor="red";
+         node.parentNode.style.backgroundColor="white";
+
+
+        /*for(var i=0;i<node.children.length;i++)
         {
-            if(i== a.length-1)
-            {
-                clearInterval(time);
-            }
-            t=i;
-            for(i=0;i<a.length;i++)
-            {
-                a[i].style.backgroundColor="white";
-            }
-            a[t].style.backgroundColor="red";
-            i=t;
-            i++;
-        },500);
+            node.children[i].style.backgroundColor="white";
+        }
+
+        if(node.previousElementSibling)
+        {
+            node.previousElementSibling.style.backgroundColor="white";
+        }*/
+
     }
-    var obutton=document.getElementById("button");
-    obutton.onclick=kaishi;
-
-
-
 
 </script>
+</body>
 </html>
